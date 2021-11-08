@@ -15,7 +15,7 @@
 
  顶点数组对象(Vertex Array Object, VAO)可以像顶点缓冲对象(VBO)那样被绑定，任何随后的顶点属性调用都会储存在这个VAO中。
  这样的好处就是，当配置顶点属性指针时，你只需要将那些调用执行一次，之后再绘制物体的时候只需要绑定相应的VAO就行了。
- 一个VAO 可以包含多个不同顶点属性（attribute pointer）的VBO 。一个VAO对应多个顶点属性（例如坐标，颜色等）。一个VBO也可以对应多个顶点属性（但是不推荐）。
+ 一个VAO 可以包含多个不同的VBO 。一个VAO对应多个顶点属性（例如坐标，颜色等）。一个VBO也可以对应多个顶点属性。
  VAO 还包含 索引缓冲对象（Element Buffer Object，EBO）
  */
 
@@ -53,7 +53,7 @@ void VAORanderColor::createVAO() {
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
     /*
      glVertexAttribPointer 函数告诉OpenGL该如何解析顶点数据
-     第一个参数指定我们要配置的顶点属性的位置。 我们在顶点着色器中使用layout(location = 0)定义了position顶点属性的位置值(Location)。这里我们传入0。
+     第一个参数指定我们要配置的 属性位置值。 我们在顶点着色器中使用layout(location = 0)定义了position 顶点属性的位置值(Location)。这里我们传入0。
      第二个参数指定顶点属性的大小。顶点属性是一个vec3，它由3个值组成，所以大小是3。
      第三个参数指定数据的类型，这里是GL_FLOAT(GLSL中向量vec*都是由浮点数值组成的)。
      第四个参数参数定义我们是否希望数据被标准化(Normalize)。如果我们设置为GL_TRUE，所有数据都会被映射到0（对于有符号型signed数据是-1）到1之间。我们把它设置为GL_FALSE。
@@ -68,7 +68,7 @@ void VAORanderColor::createVAO() {
     glBufferData(GL_ARRAY_BUFFER, sizeof(colours), colours, GL_STATIC_DRAW);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (void*)0);
     
-    // 使用glEnableVertexAttribArray,以顶点属性位置值作为参数，启用顶点属性；顶点属性默认是禁用的。
+    // 使用glEnableVertexAttribArray,以 属性位置值 作为参数，启用顶点属性；顶点属性默认是禁用的。
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
     

@@ -11,7 +11,6 @@
 		1361EB8A20872BB60067E60C /* LightVAORander.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1361EB8820872BB60067E60C /* LightVAORander.cpp */; };
 		1361EB8B20872BB60067E60C /* LightRanderProcess.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1361EB8920872BB60067E60C /* LightRanderProcess.mm */; };
 		13C16982208EE75200305E44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C16981208EE75200305E44 /* Foundation.framework */; };
-		13C16988208EEA3200305E44 /* Shader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13C16987208EEA3100305E44 /* Shader.mm */; };
 		13CD2060207C5E78000B0515 /* RanderProcess.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13CD205E207C5E78000B0515 /* RanderProcess.mm */; };
 		13CD206D207C6A9B000B0515 /* VAORander.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13CD206C207C6A9B000B0515 /* VAORander.cpp */; };
 		13CD22E9208054B2000B0515 /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13CD2292208054AE000B0515 /* glm.cpp */; };
@@ -36,7 +35,6 @@
 		2BDAA3D82735207C006829DA /* VAORanderTwoTriangleOther.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAA3A72735207C006829DA /* VAORanderTwoTriangleOther.cpp */; };
 		2BDAA3D92735207C006829DA /* VAORanderTwoTriangleThree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAA3AA2735207C006829DA /* VAORanderTwoTriangleThree.cpp */; };
 		2BDAA3DA2735207C006829DA /* VAORanderTwoTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAA3AB2735207C006829DA /* VAORanderTwoTriangle.cpp */; };
-		2BDAA3DB2735207C006829DA /* VAORanderUniformOffset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAA3AE2735207C006829DA /* VAORanderUniformOffset.cpp */; };
 		2BDAA3DC2735207C006829DA /* VAORanderMatrixOther.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAA3B22735207C006829DA /* VAORanderMatrixOther.cpp */; };
 		2BDAA3DD2735207C006829DA /* VAORanderMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAA3B72735207C006829DA /* VAORanderMatrix.cpp */; };
 		2BDAA3DE2735207C006829DA /* VAORanderMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAA3C12735207C006829DA /* VAORanderMaterial.cpp */; };
@@ -64,8 +62,6 @@
 		1361EB8820872BB60067E60C /* LightVAORander.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LightVAORander.cpp; sourceTree = "<group>"; };
 		1361EB8920872BB60067E60C /* LightRanderProcess.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LightRanderProcess.mm; sourceTree = "<group>"; };
 		13C16981208EE75200305E44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		13C16986208EEA3100305E44 /* Shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
-		13C16987208EEA3100305E44 /* Shader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Shader.mm; sourceTree = "<group>"; };
 		13CD205E207C5E78000B0515 /* RanderProcess.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RanderProcess.mm; sourceTree = "<group>"; };
 		13CD205F207C5E78000B0515 /* RanderProcess.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RanderProcess.hpp; sourceTree = "<group>"; };
 		13CD206B207C6A9B000B0515 /* VAORander.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VAORander.hpp; sourceTree = "<group>"; };
@@ -437,10 +433,6 @@
 		2BDAA3A92735207C006829DA /* VAORanderTwoTriangleOther.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VAORanderTwoTriangleOther.hpp; sourceTree = "<group>"; };
 		2BDAA3AA2735207C006829DA /* VAORanderTwoTriangleThree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VAORanderTwoTriangleThree.cpp; sourceTree = "<group>"; };
 		2BDAA3AB2735207C006829DA /* VAORanderTwoTriangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VAORanderTwoTriangle.cpp; sourceTree = "<group>"; };
-		2BDAA3AD2735207C006829DA /* FragmentShader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader; sourceTree = "<group>"; };
-		2BDAA3AE2735207C006829DA /* VAORanderUniformOffset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VAORanderUniformOffset.cpp; sourceTree = "<group>"; };
-		2BDAA3AF2735207C006829DA /* VertextShader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VertextShader; sourceTree = "<group>"; };
-		2BDAA3B02735207C006829DA /* VAORanderUniformOffset.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VAORanderUniformOffset.hpp; sourceTree = "<group>"; };
 		2BDAA3B22735207C006829DA /* VAORanderMatrixOther.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VAORanderMatrixOther.cpp; sourceTree = "<group>"; };
 		2BDAA3B32735207C006829DA /* FragmentShader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader; sourceTree = "<group>"; };
 		2BDAA3B42735207C006829DA /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
@@ -809,8 +801,6 @@
 				1361EB6E2085FF630067E60C /* Camera.cpp */,
 				13CEA6AE207A27F400BE0F36 /* FragmentShader.hpp */,
 				13CEA6AD207A27F400BE0F36 /* FragmentShader.mm */,
-				13C16986208EEA3100305E44 /* Shader.hpp */,
-				13C16987208EEA3100305E44 /* Shader.mm */,
 				13CEA6B0207A290E00BE0F36 /* ShaderProgram.hpp */,
 				13CEA6B1207A290E00BE0F36 /* ShaderProgram.cpp */,
 				13CEA6AB207A262D00BE0F36 /* VertexShader.hpp */,
@@ -898,7 +888,6 @@
 				2BDAA33D2735207C006829DA /* textures */,
 				2BDAA3A32735207C006829DA /* twoTriangle */,
 				2BDAA3462735207C006829DA /* uniform */,
-				2BDAA3AC2735207C006829DA /* uniformOffset */,
 			);
 			path = shader;
 			sourceTree = "<group>";
@@ -906,7 +895,6 @@
 		2BDAA33D2735207C006829DA /* textures */ = {
 			isa = PBXGroup;
 			children = (
-				2BDAA3422735207C006829DA /* New Group */,
 				2BDAA33E2735207C006829DA /* FragmentShader */,
 				2BDAA3412735207C006829DA /* VertextShader */,
 				2BDAA3402735207C006829DA /* VAORanderTextures.cpp */,
@@ -916,13 +904,6 @@
 				2BDAA3432735207C006829DA /* awesomeface.png */,
 			);
 			path = textures;
-			sourceTree = "<group>";
-		};
-		2BDAA3422735207C006829DA /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		2BDAA3462735207C006829DA /* uniform */ = {
@@ -1110,17 +1091,6 @@
 			path = twoTriangle;
 			sourceTree = "<group>";
 		};
-		2BDAA3AC2735207C006829DA /* uniformOffset */ = {
-			isa = PBXGroup;
-			children = (
-				2BDAA3AD2735207C006829DA /* FragmentShader */,
-				2BDAA3AF2735207C006829DA /* VertextShader */,
-				2BDAA3AE2735207C006829DA /* VAORanderUniformOffset.cpp */,
-				2BDAA3B02735207C006829DA /* VAORanderUniformOffset.hpp */,
-			);
-			path = uniformOffset;
-			sourceTree = "<group>";
-		};
 		2BDAA3B12735207C006829DA /* matrix */ = {
 			isa = PBXGroup;
 			children = (
@@ -1273,11 +1243,9 @@
 				2BDAA3CD2735207C006829DA /* VAORanderUniform.cpp in Sources */,
 				2BDAA3D62735207C006829DA /* VAORanderMatrixCoordinate.cpp in Sources */,
 				1361EB8B20872BB60067E60C /* LightRanderProcess.mm in Sources */,
-				13C16988208EEA3200305E44 /* Shader.mm in Sources */,
 				1361EB8A20872BB60067E60C /* LightVAORander.cpp in Sources */,
 				2BDAA3CE2735207C006829DA /* VAORanderColorOther.cpp in Sources */,
 				2BDAA3D92735207C006829DA /* VAORanderTwoTriangleThree.cpp in Sources */,
-				2BDAA3DB2735207C006829DA /* VAORanderUniformOffset.cpp in Sources */,
 				13CD22E9208054B2000B0515 /* glm.cpp in Sources */,
 				D8E9B2D7200D04AE00BA362E /* main.mm in Sources */,
 				2BDAA3DF2735207C006829DA /* VAORanderLightingMaps.cpp in Sources */,

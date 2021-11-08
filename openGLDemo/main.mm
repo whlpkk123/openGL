@@ -14,9 +14,12 @@
 #include "LightRanderProcess.hpp"
 //#include "ModelRanderProcess.hpp"
 
+/*
+ stb_image.h是Sean Barrett的一个非常流行的单头文件图像加载库，它能够加载大部分流行的文件格式，并且能够很简单得整合到你的工程之中。
+ 下载这一个头文件，将它以stb_image.h的名字加入你的工程，通过定义STB_IMAGE_IMPLEMENTATION，预处理器会修改头文件，让其只包含相关的函数定义源码，等于是将这个头文件变为一个 .cpp 文件了。
+ */
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-
 
 
 #pragma mark - VAO & shader
@@ -29,7 +32,6 @@
 #include "VAORanderTwoTriangleThree.hpp"
 
 #include "VAORanderUniform.hpp"
-#include "VAORanderUniformOffset.hpp"
 
 #include "VAORanderTextures.hpp"
 
@@ -58,7 +60,6 @@
 void showColor();
 void showTwoTriangle();
 void showUniform();
-void showUniformOffset();
 void showTexture();
 void showMatrix();
 void showMatrixCoordinate();
@@ -80,10 +81,9 @@ void showModel();
 int main(int argc, const char * argv[]) {
     
 //    showColor();
-    showTwoTriangle();
+//    showTwoTriangle();
 //    showUniform();
-//    showUniformOffset();
-//    showTexture();
+    showTexture();
 //    showMatrix();
 //    showMatrixCoordinate();
 //    showLight();
@@ -121,12 +121,6 @@ void showUniform() {
     VAORander *rander = new VAORanderUniform();
     RanderProcess randerProcess;
     randerProcess.createRanderProcess(@"uniform/VertextShader", @"uniform/FragmentShader", rander);
-}
-
-void showUniformOffset() {
-    VAORander *rander = new VAORanderUniformOffset();
-    RanderProcess randerProcess;
-    randerProcess.createRanderProcess(@"uniformOffset/VertextShader", @"uniformOffset/FragmentShader", rander);
 }
 
 void showTexture() {

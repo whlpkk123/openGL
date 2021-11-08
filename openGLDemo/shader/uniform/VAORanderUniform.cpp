@@ -47,10 +47,15 @@ void VAORanderUniform::rander(GLuint program) {
     
     //注意，查询uniform地址不要求你之前使用过着色器程序，但是更新一个uniform之前你必须先使用程序（调用glUseProgram)，因为它是在当前激活的着色器程序中设置uniform的
     GLfloat timeValue = glfwGetTime();
-    GLfloat greenValue = sin(timeValue) / 2.0f + 0.5f;
-    GLint vertexColorLocation = glGetUniformLocation(program, "ourColor");
-    glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+    GLfloat value = sin(timeValue) / 2.0f;
+//    GLint vertexColorLocation = glGetUniformLocation(program, "ourColor");
+//    glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+    setVec4(program, "ourColor", glm::vec4(0.0f, value + 0.5f, 0.0f, 1.0f));
 
+//    GLint vertexOffsetLocation = glGetUniformLocation(program, "ourOffset");
+//    glUniform1f(vertexOffsetLocation, value);
+    setFloat(program, "ourOffset", value);
+    
     // 绘制
     glBindVertexArray(_VAO);
     glDrawArrays(GL_TRIANGLES, 0, 3);
