@@ -36,7 +36,7 @@ void VAORander::setFloat(GLuint program, const std::string &name, float value) c
 // ------------------------------------------------------------------------
 void VAORander::setVec2(GLuint program, const std::string &name, const glm::vec2 &value) const
 {
-    glUniform2fv(glGetUniformLocation(program, name.c_str()), 1, &value[0]);
+    glUniform2fv(glGetUniformLocation(program, name.c_str()), 1, glm::value_ptr(value));
 }
 void VAORander::setVec2(GLuint program, const std::string &name, float x, float y) const
 {
@@ -45,7 +45,7 @@ void VAORander::setVec2(GLuint program, const std::string &name, float x, float 
 // ------------------------------------------------------------------------
 void VAORander::setVec3(GLuint program, const std::string &name, const glm::vec3 &value) const
 {
-    glUniform3fv(glGetUniformLocation(program, name.c_str()), 1, &value[0]);
+    glUniform3fv(glGetUniformLocation(program, name.c_str()), 1, glm::value_ptr(value));
 }
 void VAORander::setVec3(GLuint program, const std::string &name, float x, float y, float z) const
 {
@@ -54,7 +54,7 @@ void VAORander::setVec3(GLuint program, const std::string &name, float x, float 
 // ------------------------------------------------------------------------
 void VAORander::setVec4(GLuint program, const std::string &name, const glm::vec4 &value) const
 {
-    glUniform4fv(glGetUniformLocation(program, name.c_str()), 1, &value[0]);
+    glUniform4fv(glGetUniformLocation(program, name.c_str()), 1, glm::value_ptr(value));
 }
 void VAORander::setVec4(GLuint program, const std::string &name, float x, float y, float z, float w) const
 {
@@ -63,15 +63,15 @@ void VAORander::setVec4(GLuint program, const std::string &name, float x, float 
 // ------------------------------------------------------------------------
 void VAORander::setMat2(GLuint program, const std::string &name, const glm::mat2 &mat) const
 {
-    glUniformMatrix2fv(glGetUniformLocation(program, name.c_str()), 1, GL_FALSE, &mat[0][0]);
+    glUniformMatrix2fv(glGetUniformLocation(program, name.c_str()), 1, GL_FALSE, glm::value_ptr(mat));
 }
 // ------------------------------------------------------------------------
 void VAORander::setMat3(GLuint program, const std::string &name, const glm::mat3 &mat) const
 {
-    glUniformMatrix3fv(glGetUniformLocation(program, name.c_str()), 1, GL_FALSE, &mat[0][0]);
+    glUniformMatrix3fv(glGetUniformLocation(program, name.c_str()), 1, GL_FALSE, glm::value_ptr(mat));
 }
 // ------------------------------------------------------------------------
 void VAORander::setMat4(GLuint program, const std::string &name, const glm::mat4 &mat) const
 {
-    glUniformMatrix4fv(glGetUniformLocation(program, name.c_str()), 1, GL_FALSE, &mat[0][0]);
+    glUniformMatrix4fv(glGetUniformLocation(program, name.c_str()), 1, GL_FALSE, glm::value_ptr(mat));
 }

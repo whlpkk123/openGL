@@ -457,6 +457,7 @@
 		2BDAA3C92735207C006829DA /* VertextShader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VertextShader; sourceTree = "<group>"; };
 		2BDAA3CA2735207C006829DA /* container2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container2.png; sourceTree = "<group>"; };
 		2BDAA3CB2735207C006829DA /* VAORanderLightingMaps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VAORanderLightingMaps.cpp; sourceTree = "<group>"; };
+		2BDFECDC273926B000E60C8A /* MirrorFragmentShader */ = {isa = PBXFileReference; lastKnownFileType = text; path = MirrorFragmentShader; sourceTree = "<group>"; };
 		D8E9B2D3200D04AE00BA362E /* openGLDemo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = openGLDemo; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8E9B2D6200D04AE00BA362E /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -895,10 +896,11 @@
 		2BDAA33D2735207C006829DA /* textures */ = {
 			isa = PBXGroup;
 			children = (
+				2BDFECDC273926B000E60C8A /* MirrorFragmentShader */,
 				2BDAA33E2735207C006829DA /* FragmentShader */,
 				2BDAA3412735207C006829DA /* VertextShader */,
-				2BDAA3402735207C006829DA /* VAORanderTextures.cpp */,
 				2BDAA3452735207C006829DA /* VAORanderTextures.hpp */,
+				2BDAA3402735207C006829DA /* VAORanderTextures.cpp */,
 				2BDAA3442735207C006829DA /* awesomeface.jpg */,
 				2BDAA33F2735207C006829DA /* container.jpg */,
 				2BDAA3432735207C006829DA /* awesomeface.png */,
@@ -911,8 +913,8 @@
 			children = (
 				2BDAA3472735207C006829DA /* FragmentShader */,
 				2BDAA3492735207C006829DA /* VertextShader */,
-				2BDAA3482735207C006829DA /* VAORanderUniform.cpp */,
 				2BDAA34A2735207C006829DA /* VAORanderUniform.hpp */,
+				2BDAA3482735207C006829DA /* VAORanderUniform.cpp */,
 			);
 			path = uniform;
 			sourceTree = "<group>";
@@ -922,10 +924,10 @@
 			children = (
 				2BDAA34D2735207C006829DA /* FragmentShader */,
 				2BDAA34F2735207C006829DA /* VertextShader */,
-				2BDAA3512735207C006829DA /* VAORanderColor.cpp */,
 				2BDAA34C2735207C006829DA /* VAORanderColor.hpp */,
-				2BDAA3502735207C006829DA /* VAORanderColorOther.cpp */,
+				2BDAA3512735207C006829DA /* VAORanderColor.cpp */,
 				2BDAA34E2735207C006829DA /* VAORanderColorOther.hpp */,
+				2BDAA3502735207C006829DA /* VAORanderColorOther.cpp */,
 			);
 			path = color;
 			sourceTree = "<group>";
@@ -1081,12 +1083,12 @@
 			children = (
 				2BDAA3A42735207C006829DA /* FragmentShader */,
 				2BDAA3A82735207C006829DA /* VertextShader */,
-				2BDAA3AB2735207C006829DA /* VAORanderTwoTriangle.cpp */,
 				2BDAA3A62735207C006829DA /* VAORanderTwoTriangle.hpp */,
-				2BDAA3A72735207C006829DA /* VAORanderTwoTriangleOther.cpp */,
+				2BDAA3AB2735207C006829DA /* VAORanderTwoTriangle.cpp */,
 				2BDAA3A92735207C006829DA /* VAORanderTwoTriangleOther.hpp */,
-				2BDAA3AA2735207C006829DA /* VAORanderTwoTriangleThree.cpp */,
+				2BDAA3A72735207C006829DA /* VAORanderTwoTriangleOther.cpp */,
 				2BDAA3A52735207C006829DA /* VAORanderTwoTriangleThree.hpp */,
+				2BDAA3AA2735207C006829DA /* VAORanderTwoTriangleThree.cpp */,
 			);
 			path = twoTriangle;
 			sourceTree = "<group>";
@@ -1096,10 +1098,10 @@
 			children = (
 				2BDAA3B32735207C006829DA /* FragmentShader */,
 				2BDAA3B62735207C006829DA /* VertextShader */,
-				2BDAA3B72735207C006829DA /* VAORanderMatrix.cpp */,
 				2BDAA3B52735207C006829DA /* VAORanderMatrix.hpp */,
-				2BDAA3B22735207C006829DA /* VAORanderMatrixOther.cpp */,
+				2BDAA3B72735207C006829DA /* VAORanderMatrix.cpp */,
 				2BDAA3BA2735207C006829DA /* VAORanderMatrixOther.hpp */,
+				2BDAA3B22735207C006829DA /* VAORanderMatrixOther.cpp */,
 				2BDAA3B92735207C006829DA /* awesomeface.jpg */,
 				2BDAA3B42735207C006829DA /* container.jpg */,
 				2BDAA3B82735207C006829DA /* awesomeface.png */,
@@ -1141,8 +1143,8 @@
 			children = (
 				D8E9B2DD200D056400BA362E /* Frameworks */,
 				D8E9B2D5200D04AE00BA362E /* openGLDemo */,
-				D8E9B2D4200D04AE00BA362E /* Products */,
 				13CD21E020805446000B0515 /* ThridLibrary */,
+				D8E9B2D4200D04AE00BA362E /* Products */,
 			);
 			sourceTree = "<group>";
 		};

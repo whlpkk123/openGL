@@ -12,13 +12,11 @@ uniform float alpha;
 
 void main() {
     vec4 color1 = texture(texture1, texCoord);
-    vec4 color2 = texture(texture2, texCoord);
+    vec4 color2 = texture(texture2, vec2(1-texCoord.x, texCoord.y)); //左右翻转表情
     
     if (color2.a <= 0) {
-        //frag_colour = color1 * (1-alpha);
         frag_colour = color1;
     }else {
-        //frag_colour = color1 * (1-alpha) + color2 * alpha; //等价于下面的写法
         frag_colour = mix(color1 ,color2, alpha);
     }
 }

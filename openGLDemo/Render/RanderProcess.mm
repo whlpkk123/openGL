@@ -19,6 +19,8 @@ using namespace std;
 
 void processInputEvent(GLFWwindow *window, int key, int scanCode, int action, int mods);
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+void window_size_callback(GLFWwindow* window, int width, int height);
+void updateViewportSize(int x, int y, int width, int height);
 
 VAORander *_rander;
 
@@ -37,18 +39,20 @@ void RanderProcess:: createRanderProcess(NSString *vertexShaderPath, NSString *f
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); // 核心模式
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // 在mac上需要设置, 向前兼容
     
-    // 创建一个窗口对象，这个窗口对象存放了所有和窗口相关的数据，而且会被 GLFW 的其他函数频繁地用到
+    // 创建一个窗口对象，这个窗口对象存放了所有和窗口相关的数据，而且会被 GLFW 的其他函数频繁地用到。对于视网膜(Retina)显示屏，width和height都会明显比原输入值更高一点。
     GLFWwindow *window = glfwCreateWindow(800, 600, "Hi, OpenGL!", NULL, NULL);
     if (!window) {
         cout << "GLFW create window error" << window << endl;
         glfwTerminate();
         exit(EXIT_FAILURE);
     }
-    _rander->_screenWidth = 800;
-    _rander->_screenHeight = 600;
-    
     // 显示当前窗口
     glfwMakeContextCurrent(window);
+    // 注册帧大小变化回调事件，这里我们命名为 framebuffer_size_callback（见下面），当画面帧调整大小的时候会回调到这个函数。
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+//    glfwSetWindowSizeCallback(window, window_size_callback);
+    // 注册键盘回调事件
+    glfwSetKeyCallback(window, processInputEvent);
     
     // 初始化GLAD
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -58,13 +62,7 @@ void RanderProcess:: createRanderProcess(NSString *vertexShaderPath, NSString *f
         exit(EXIT_FAILURE);
     }
     
-    // 注册窗口大小变化回调事件，这里我们命名为 framebuffer_size_callback（见下面），当窗口调整大小的时候会回调到这个函数。 当窗口被第一次显示的时候也会回调。
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-    // 注册键盘回调事件
-    glfwSetKeyCallback(window, processInputEvent);
-    
     _rander->handleWindow(window);
-    
     
     VertexShader vShader;
     GLuint vertexShader = vShader.createShader(vertexShaderPath);
@@ -127,15 +125,31 @@ void processInputEvent(GLFWwindow *window, int key, int scanCode, int action, in
 }
 
 
-/// 窗口大小修改回调
+/// 帧大小修改回调
 /// @param window 窗口
-/// @param width 新的宽度
-/// @param height 新的高度
+/// @param width 新帧的宽度，单位是物理像素
+/// @param height 新帧的高度，单位是物理像素
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     // make sure the viewport matches the new window dimensions; note that width and
     // height will be significantly larger than specified on retina displays.
-    glViewport(0, 0, width, height);
-    
+    updateViewportSize(0, 0, width, height);
+}
+
+/// 窗口大小修改回调
+/// @param window 窗口
+/// @param width 新窗口的宽度，单位是逻辑像素
+/// @param height 新窗口的高度，单位是逻辑像素
+void window_size_callback(GLFWwindow* window, int width, int height) {
+    //不要用窗口的大小设置 glViewport 或其他基于物理像素的 OpenGL 的调用。使用 framebuffer size，这个是基于物理像素的。
+}
+
+
+void updateViewportSize(int x, int y, int width, int height) {
+    /*
+     调用glViewport函数来设置视口的坐标，函数前两个参数控制窗口左下角的位置。第三个和第四个参数控制渲染窗口的宽度和高度（像素）。
+     glclear设置背景色不受视口影响，视口仅影响图元
+     */
+    glViewport(x, y, width, height);
     _rander->_screenWidth = width;
     _rander->_screenHeight = height;
 }

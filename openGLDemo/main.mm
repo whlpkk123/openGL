@@ -83,8 +83,8 @@ int main(int argc, const char * argv[]) {
 //    showColor();
 //    showTwoTriangle();
 //    showUniform();
-    showTexture();
-//    showMatrix();
+//    showTexture();
+    showMatrix();
 //    showMatrixCoordinate();
 //    showLight();
 //    showMaterial();
@@ -127,11 +127,12 @@ void showTexture() {
     VAORander *rander = new VAORanderTextures();
     RanderProcess randerProcess;
     randerProcess.createRanderProcess(@"textures/VertextShader", @"textures/FragmentShader", rander);
+//    randerProcess.createRanderProcess(@"textures/VertextShader", @"textures/MirrorFragmentShader", rander);
 }
 
 void showMatrix() {
-//    VAORander *rander = new VAORanderMatrix();
-    VAORander *rander = new VAORanderMatrixOther();
+    VAORander *rander = new VAORanderMatrix();
+//    VAORander *rander = new VAORanderMatrixOther();
 
     RanderProcess randerProcess;
     randerProcess.createRanderProcess(@"matrix/VertextShader", @"matrix/FragmentShader", rander);

@@ -68,6 +68,9 @@ void VAORanderTwoTriangleThree::rander(GLuint program) {
     glBindVertexArray(_VAO);
     // 通过 glPolygonMode 函数配置OpenGL如何绘制图元。第一个参数表示我们打算将其应用到正面和背面，第二个参数告诉我们用线来绘制(不填充，默认为GL_FILL)。
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-    // glDrawElements 替换 glDrawArrays，来指明我们从索引缓冲渲染。使用glDrawElements时，我们会使用当前绑定的索引缓冲对象中的索引进行绘制：
+    /*
+     glDrawElements 替换 glDrawArrays，来指明我们从索引缓冲渲染。使用glDrawElements时，我们会使用当前绑定的索引缓冲对象中的索引进行绘制：
+     第一个参数指定了我们绘制的图元模式。第二个参数是我们打算绘制顶点的个数，这里填6，也就是说我们一共需要绘制6个顶点。第三个参数是索引的类型，这里是GL_UNSIGNED_INT。最后一个参数里我们可以指定EBO中的偏移量（或者传递一个索引数组，但这是在不使用索引缓冲对象的时候），但是我们会在这里填写0。
+     */
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }

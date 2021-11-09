@@ -49,7 +49,8 @@ GLuint VAORanderTextures:: createTexture(char const * path, GLint param = GL_REP
     
     // 加载并生成纹理
     int width, height, nrChannels;
-    stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis.
+    // OpenGL要求y轴0.0坐标是在图片的坐下角的，但是图片的y轴0.0坐标通常在左上角。所以这里需要调用 stbi_set_flip_vertically_on_load 函数帮我们翻转y轴
+    stbi_set_flip_vertically_on_load(true);
     // 它需要三个int作为它的第二、第三和第四个参数，stb_image.h将会用图像的宽度、高度和颜色通道个数填充这三个变量。
     unsigned char *data = stbi_load(path, &width, &height, &nrChannels, 0);
     if (data) {
@@ -98,9 +99,10 @@ void VAORanderTextures::createVAO() {
         -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // 左下
         -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // 左上
     };
+    //尝试设定一个从0.0f到2.0f范围内的（而不是原来的0.0f到1.0f）纹理坐标
 //    GLfloat vertices[] = {
 //        //     ---- 位置 ----       ---- 颜色 ----     - 纹理坐标 -
-//        0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   2.0f, 2.0f,   // 右assimp_lib上
+//        0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   2.0f, 2.0f,   // 右上
 //        0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   2.0f, -1.0f,   // 右下
 //        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   -1.0f, -1.0f,   // 左下
 //        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   -1.0f, 2.0f    // 左上
@@ -122,7 +124,7 @@ void VAORanderTextures::createVAO() {
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
+    
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8*sizeof(GLfloat), (void*)0);
     glEnableVertexAttribArray(0);
 
@@ -134,7 +136,7 @@ void VAORanderTextures::createVAO() {
     
     _VAO = VAO;
     
-    _texture1 = createTexture("textures/container.jpg");
+    _texture1 = createTexture("textures/container.jpg", GL_CLAMP_TO_EDGE);
     _texture2 = createTexture("textures/awesomeface.png");
     
     _alpha = 0.2f;
@@ -144,8 +146,11 @@ void VAORanderTextures::beforeRander(GLuint program) {
     
     //注意，查询uniform地址不要求你之前使用过着色器程序，但是更新一个uniform之前你必须先使用程序（调用glUseProgram)，因为它是在当前激活的着色器程序中设置uniform的
     glUseProgram(program);
-    glUniform1i(glGetUniformLocation(program, "texture1"), 0); // 手动设置
-    glUniform1i(glGetUniformLocation(program, "texture2"), 1); // 手动设置
+    // 使用 glUniform1i 设置着色器采样器属于哪个纹理单元
+//    glUniform1i(glGetUniformLocation(program, "texture1"), 0); // 手动设置, 采样器（即uniform变量texture1）绑定的是纹理单元0
+    setInt(program, "texture1", 0);
+//    glUniform1i(glGetUniformLocation(program, "texture2"), 1); // 手动设置, 采样器（即uniform变量texture2）绑定的是纹理单元1
+    setInt(program, "texture2", 1);
 }
 
 void VAORanderTextures::rander(GLuint program) {
@@ -154,13 +159,16 @@ void VAORanderTextures::rander(GLuint program) {
 
     glUseProgram(program);
 
+    //激活纹理单元，接下来的 glBindTexture 函数调用会绑定纹理到当前激活的纹理单元
     glActiveTexture(GL_TEXTURE0);
+    // 将纹理绑定到当前激活的纹理单元，即纹理单元0。因为前面已经将采样器 texture1 和当前纹理单元绑定，所以采样器 texture1 可以获取到纹理 _texture1。
     glBindTexture(GL_TEXTURE_2D, _texture1);
     glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, _texture2);
+    glBindTexture(GL_TEXTURE_2D, _texture2); // 原理同上，采样器 texture2 可以获取到纹理 _texture2。
     
-    glUniform1f(glGetUniformLocation(program, "alpha"), _alpha); // 手动设置
-    
+//    glUniform1f(glGetUniformLocation(program, "alpha"), _alpha); // 手动设置
+    setFloat(program, "alpha", _alpha);
+
     glBindVertexArray(_VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
@@ -168,12 +176,12 @@ void VAORanderTextures::rander(GLuint program) {
 void VAORanderTextures::processInputEvent(GLFWwindow *window, int key, int scanCode, int action, int mods) {
     //glfwGetKey 返回上一次特定窗口中某个按键的状态（按下GLFW_PRESS 或者 释放GLFW_RELEASE）
     if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
-        _alpha += 0.01f;
+        _alpha += 0.03f;
         if (_alpha >= 1.0f) {
             _alpha = 1.0f;
         }
     }else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
-        _alpha -= 0.01f;
+        _alpha -= 0.03f;
         if (_alpha <= .0f) {
             _alpha = .0f;
         }

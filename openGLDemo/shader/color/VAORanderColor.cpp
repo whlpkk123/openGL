@@ -15,8 +15,10 @@
 
  顶点数组对象(Vertex Array Object, VAO)可以像顶点缓冲对象(VBO)那样被绑定，任何随后的顶点属性调用都会储存在这个VAO中。
  这样的好处就是，当配置顶点属性指针时，你只需要将那些调用执行一次，之后再绘制物体的时候只需要绑定相应的VAO就行了。
- 一个VAO 可以包含多个不同的VBO 。一个VAO对应多个顶点属性（例如坐标，颜色等）。一个VBO也可以对应多个顶点属性。
- VAO 还包含 索引缓冲对象（Element Buffer Object，EBO）
+ 
+ 一个 VBO 就是一片缓冲区，即显存，可以存放大量数据。glBindBuffer GL_ARRAY_BUFFER 向显存内部写入数组，在根据 glVertexAttribPointer 解析数组即可，也就是一片缓存区可以存放多个顶点属性，只需要根据对应的规则解析即可。
+ VAO不是Buffer-Object，所以不用作存储数据；VAO保存的是VBO的绘制状态。VAO将其对应的VBO的状态及信息直接存储在GPU的内存中。VAO中并没有VBO的相关属性数据，只是存储了VBO的当前状态及索引信息，通过VAO就能快速访问到VBO的状态及VBO的数据。
+ VAO 还包含 索引缓冲对象（Element Buffer Object，EBO）的状态及索引
  */
 
 void VAORanderColor::createVAO() {
