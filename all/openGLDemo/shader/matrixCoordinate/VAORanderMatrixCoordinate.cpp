@@ -3,7 +3,6 @@
 //  openGLDemo
 //
 //  Created by YZK on 2018/4/10.
-//  Copyright © 2018年 xindong. All rights reserved.
 //
 
 #include "VAORanderMatrixCoordinate.hpp"

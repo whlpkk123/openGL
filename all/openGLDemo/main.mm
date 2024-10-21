@@ -3,7 +3,6 @@
 //  openGLDemo
 //
 //  Created by xindong on 18/1/15.
-//  Copyright © 2018年 xindong. All rights reserved.
 //
 
 #include <iostream>
@@ -20,6 +19,7 @@
 
 #include "VAORanderColor.hpp"
 #include "VAORanderColorOther.hpp"
+#include "VAORanderColorTwoTriangle.hpp"
 
 #include "VAORanderTwoTriangle.hpp"
 #include "VAORanderTwoTriangleOther.hpp"
@@ -95,8 +95,9 @@ int main(int argc, const char * argv[]) {
 #pragma mark 第一章
 
 void showColor() {
-    VAORander *rander = new VAORanderColor();
+//    VAORander *rander = new VAORanderColor();
 //    VAORander *rander = new VAORanderColorOther();
+    VAORander *rander = new VAORanderColorTwoTriangle();
     
     RanderProcess randerProcess;
     randerProcess.createRanderProcess(@"color/VertextShader", @"color/FragmentShader", rander);
@@ -104,8 +105,8 @@ void showColor() {
 
 void showTwoTriangle() {
 //    VAORander *rander = new VAORanderTwoTriangle();
-//    VAORander *rander = new VAORanderTwoTriangleOther();
-    VAORander *rander = new VAORanderTwoTriangleThree();
+    VAORander *rander = new VAORanderTwoTriangleOther();
+//    VAORander *rander = new VAORanderTwoTriangleThree();
 
     RanderProcess randerProcess;
     randerProcess.createRanderProcess(@"twoTriangle/VertextShader", @"twoTriangle/FragmentShader", rander);

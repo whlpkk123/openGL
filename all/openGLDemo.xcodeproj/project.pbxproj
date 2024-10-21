@@ -17,6 +17,7 @@
 		13CEA6AC207A262D00BE0F36 /* VertexShader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13CEA6AA207A262D00BE0F36 /* VertexShader.mm */; };
 		13CEA6AF207A27F400BE0F36 /* FragmentShader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13CEA6AD207A27F400BE0F36 /* FragmentShader.mm */; };
 		13CEA6B2207A290E00BE0F36 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13CEA6B1207A290E00BE0F36 /* ShaderProgram.cpp */; };
+		2BA17A292CC67E75003FFBE1 /* VAORanderColorTwoTriangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2BA17A272CC67E75003FFBE1 /* VAORanderColorTwoTriangle.cpp */; };
 		2BD0BF5F2CC12F0900C32BB9 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD0BE882CC12EDC00C32BB9 /* libglfw3.a */; };
 		2BD0BF682CC133E200C32BB9 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 2BD0BF672CC133C300C32BB9 /* glad.c */; };
 		2BD0BF6A2CC1393200C32BB9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD0BF692CC1393200C32BB9 /* Cocoa.framework */; };
@@ -332,6 +333,8 @@
 		13CEA6AE207A27F400BE0F36 /* FragmentShader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FragmentShader.hpp; sourceTree = "<group>"; };
 		13CEA6B0207A290E00BE0F36 /* ShaderProgram.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShaderProgram.hpp; sourceTree = "<group>"; };
 		13CEA6B1207A290E00BE0F36 /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
+		2BA17A272CC67E75003FFBE1 /* VAORanderColorTwoTriangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VAORanderColorTwoTriangle.cpp; sourceTree = "<group>"; };
+		2BA17A282CC67E75003FFBE1 /* VAORanderColorTwoTriangle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VAORanderColorTwoTriangle.hpp; sourceTree = "<group>"; };
 		2BB2EEBF2733E52B00A37A8B /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		2BD0BE862CC12EDC00C32BB9 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		2BD0BE882CC12EDC00C32BB9 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libglfw3.a; sourceTree = "<group>"; };
@@ -1419,6 +1422,8 @@
 				2BDAA3512735207C006829DA /* VAORanderColor.cpp */,
 				2BDAA34E2735207C006829DA /* VAORanderColorOther.hpp */,
 				2BDAA3502735207C006829DA /* VAORanderColorOther.cpp */,
+				2BA17A282CC67E75003FFBE1 /* VAORanderColorTwoTriangle.hpp */,
+				2BA17A272CC67E75003FFBE1 /* VAORanderColorTwoTriangle.cpp */,
 			);
 			path = color;
 			sourceTree = "<group>";
@@ -1755,6 +1760,7 @@
 				1361EB702085FF630067E60C /* Camera.cpp in Sources */,
 				2BDAA3DD2735207C006829DA /* VAORanderMatrix.cpp in Sources */,
 				2BDAA3D32735207C006829DA /* VAORanderLightingCastersDirectionalLight.cpp in Sources */,
+				2BA17A292CC67E75003FFBE1 /* VAORanderColorTwoTriangle.cpp in Sources */,
 				13CD2060207C5E78000B0515 /* RanderProcess.mm in Sources */,
 				2BDAA3DC2735207C006829DA /* VAORanderMatrixOther.cpp in Sources */,
 				13CEA6AF207A27F400BE0F36 /* FragmentShader.mm in Sources */,

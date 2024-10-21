@@ -1,18 +1,18 @@
 //
-//  VAORanderTwoTriangleOther.hpp
+//  VAORanderColorTwoTriangle.hpp
 //  openGLDemo
 //
 //  Created by YZK on 2018/4/10.
 //
 
-#ifndef VAORanderTwoTriangleOther_hpp
-#define VAORanderTwoTriangleOther_hpp
+#ifndef VAORanderColorTwoTriangle_hpp
+#define VAORanderColorTwoTriangle_hpp
 
 #include <stdio.h>
 #include <OpenGL/gltypes.h>
 #include "VAORander.hpp"
 
-class VAORanderTwoTriangleOther : public VAORander {
+class VAORanderColorTwoTriangle : public VAORander {
 private:
     GLuint _VAO;
 public:
@@ -20,4 +20,4 @@ public:
     void rander(GLuint program);
 };
 
-#endif /* VAORanderTwoTriangleOther_hpp */
+#endif /* VAORanderColorTwoTriangle_hpp */
