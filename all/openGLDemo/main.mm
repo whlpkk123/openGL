@@ -95,9 +95,9 @@ int main(int argc, const char * argv[]) {
 #pragma mark 第一章
 
 void showColor() {
-//    VAORander *rander = new VAORanderColor();
+    VAORander *rander = new VAORanderColor();
 //    VAORander *rander = new VAORanderColorOther();
-    VAORander *rander = new VAORanderColorTwoTriangle();
+//    VAORander *rander = new VAORanderColorTwoTriangle();
     
     RanderProcess randerProcess;
     randerProcess.createRanderProcess(@"color/VertextShader", @"color/FragmentShader", rander);

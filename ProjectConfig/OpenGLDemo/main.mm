@@ -2,7 +2,7 @@
 //  main.m
 //  OpenGLDemo
 //
-//  Created by ByteDance on 2024/10/21.
+//  Created by YZK on 2024/10/21.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,6 +11,7 @@
 #include <GLFW/glfw3.h>
 
 void processInput(GLFWwindow *window);
+void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
 int main(int argc, const char * argv[]) {
     
@@ -35,7 +36,9 @@ int main(int argc, const char * argv[]) {
     }
     // 通知GLFW将我们窗口的上下文设置为当前线程的主上下文
     glfwMakeContextCurrent(window);
-    
+    // 注册窗口大小变化回调
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
     // 初始化GLAD，传入用来加载系统相关的OpenGL函数指针地址的函数。GLFW给我们的是glfwGetProcAddress，它根据我们编译的系统定义了正确的函数。
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
@@ -68,4 +71,9 @@ void processInput(GLFWwindow *window)
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, true);
     }
+}
+
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+    glViewport(0, 0, width, height);
 }
