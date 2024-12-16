@@ -2,7 +2,6 @@
 //  YZKSharpenRender.m
 //  OpenGLESDemo
 //
-//  Created by ByteDance on 2024/12/16.
 //
 
 #import "YZKSharpenRender.h"

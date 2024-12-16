@@ -2,7 +2,6 @@
 //  stb_image_imp.cpp
 //  openGLDemo
 //
-//  Created by ByteDance on 2024/10/18.
 //  Copyright © 2024 xindong. All rights reserved.
 //
 

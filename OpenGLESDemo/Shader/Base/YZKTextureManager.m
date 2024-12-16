@@ -2,7 +2,6 @@
 //  YZKTextureManager.m
 //  OpenGLESDemo
 //
-//  Created by ByteDance on 2024/10/25.
 //
 
 #import "YZKTextureManager.h"

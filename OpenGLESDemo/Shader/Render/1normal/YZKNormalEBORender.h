@@ -2,7 +2,6 @@
 //  YZKNormalEBORender.h
 //  OpenGLESDemo
 //
-//  Created by ByteDance on 2024/10/24.
 //
 
 #import "YZKRender.h"

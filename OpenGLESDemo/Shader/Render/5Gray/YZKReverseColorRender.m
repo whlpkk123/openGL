@@ -2,7 +2,6 @@
 //  YZKReverseColorRender.m
 //  OpenGLESDemo
 //
-//  Created by ByteDance on 2024/12/13.
 //
 
 #import "YZKReverseColorRender.h"

@@ -2,7 +2,6 @@
 //  YZKTitleTableViewCell.m
 //  OpenGLESDemo
 //
-//  Created by ByteDance on 2024/10/23.
 //
 
 #import "YZKTitleTableViewCell.h"
